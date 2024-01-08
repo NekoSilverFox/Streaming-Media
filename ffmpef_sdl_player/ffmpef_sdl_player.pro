@@ -4,8 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        demuxthread.cpp \
         log.cpp \
-        main.cpp
+        main.cpp \
+        thread.cpp
 
 
 # MacOS 下导入库
@@ -24,4 +26,6 @@ LIBS += -L /usr/local/ffmpeg/lib \
         -lswresample
 
 HEADERS += \
-    log.h
+    demuxthread.h \
+    log.h \
+    thread.h

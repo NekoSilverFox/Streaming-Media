@@ -124,7 +124,13 @@ PCM 是一种常见的数字音频编码方式，用于将模拟音频信号转�
 
 
 
+### 解封装流程
 
+1. 分配解复用器上下文 `avformat_alloc_context`
+2. 根据 url 打开本地文件或者网络流 `avformat_open_input`
+3. 读取媒体的部分数据包以获取码流信息 `avformat_find_stream_info`
+4. 【循环】从文件中读取数据包 `av_read_frame` 或者 定位文件 `avformat_seek_file | av_seek_frame`
+5. 关闭解复用器 `avformat_close_input`
 
 
 
