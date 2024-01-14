@@ -8,10 +8,10 @@ Thread::Thread()
 
 Thread::~Thread()
 {
-    if (thread_) Thread::Stop();
+    if (thread_) Thread::stop();
 }
 
-int Thread::Stop()
+int Thread::stop()
 {
     abort_ = 1;
     if (thread_)

@@ -25,10 +25,10 @@ void Serialize(const char* fmt, ...);
 /*
  * ##__VA_ARGS__：这是一个用于处理可变参数的预处理器技巧，它将传递给宏的可变参数与前面的 fmt 连接在一起。## 是可变参数前面的连接符，它在可变参数为空时起到去除前面的逗号的作用。
  */
-#define LogDebug(fmt, ...)	Serialize(makePrefix(fmt), ##__VA_ARGS__)
-#define LogInfo(fmt, ...)	Serialize(makePrefix(fmt), ##__VA_ARGS__)
-#define LogNotice(fmt, ...)	Serialize(makePrefix(fmt), ##__VA_ARGS__)
-#define LogError(fmt, ...)	Serialize(makePrefix(fmt), ##__VA_ARGS__)
+#define LogDebug(fmt, ...)	Serialize(std::string("[Debug] ").append(makePrefix(fmt)).c_str(), ##__VA_ARGS__)
+#define LogInfo(fmt, ...)	Serialize(std::string("[INFO] ").append(makePrefix(fmt)).c_str(), ##__VA_ARGS__)
+#define LogNotice(fmt, ...)	Serialize(std::string("[Notice] ").append(makePrefix(fmt)).c_str(), ##__VA_ARGS__)
+#define LogError(fmt, ...)	Serialize(std::string("[Error] ").append(makePrefix(fmt)).c_str(), ##__VA_ARGS__)
 
 
 #endif // LOG_H
